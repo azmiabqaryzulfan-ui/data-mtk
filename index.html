@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minecraft Student Data World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div id="toasts"></div>
+<!-- LOADING / MENU -->
+<section id="intro"><canvas id="bg"></canvas>
+ <div id="loading"><h2>Memuat dunia...</h2><div class="bar"><i id="barfill"></i></div><p id="loadtxt">Generating terrain</p></div>
+ <div id="menu" hidden><h1>MINECRAFT<br>STUDENT DATA WORLD</h1><p class="sub">Analisis Data Bivariat Siswa SMK Wikrama Bogor</p>
+  <button class="mcbtn" id="start">START GAME</button>
+  <button class="mcbtn" id="musicMenu">Musik: OFF</button></div></section>
+<!-- APP -->
+<div id="app" hidden>
+ <nav id="nav"><button data-p="home">Dashboard</button><button data-p="data">Data Siswa</button><button data-p="chart">Grafik</button><button data-p="analysis">Analisis</button><button data-p="conclusion">Kesimpulan</button><button data-p="leader">Leaderboard</button><button data-p="ach">Achievement</button><button data-p="world">Dunia</button><button id="musicBtn">Musik: OFF</button></nav>
+ <main>
+ <section class="page" id="p-home"><h2>INVENTORY DATA</h2>
+  <div class="grid inv">
+   <div class="slot"><b class="ico grass"></b><span>Total Responden</span><strong id="v-n"></strong></div>
+   <div class="slot"><b class="ico diamond"></b><span>Variabel X</span><strong>Pengetahuan (KIK)</strong></div>
+   <div class="slot"><b class="ico gold"></b><span>Variabel Y</span><strong>Perilaku (PP)</strong></div>
+   <div class="slot"><b class="ico emerald"></b><span>Rata-rata Pengetahuan</span><strong id="v-mx"></strong></div>
+   <div class="slot"><b class="ico redstone"></b><span>Rata-rata Perilaku</span><strong id="v-my"></strong></div>
+   <div class="slot"><b class="ico stone"></b><span>Regresi</span><strong>y = 0,02382x + 34,339</strong></div>
+  </div>
+  <p class="panel">Judul: <em>Hubungan Tingkat Pengetahuan Energi Listrik Terhadap Sikap Hemat Listrik Siswa SMK Wikrama Bogor</em>. Kelompok 2, DKV XI-3. Gunakan menu atau jelajahi <a href="#" data-go="world">Dunia Minecraft</a> untuk membuka halaman.</p></section>
+ <section class="page" id="p-data"><h2>DATA SISWA</h2>
+  <div class="tools"><input id="q" placeholder="Cari nomor responden..." inputmode="numeric">
+   <select id="sort"><option value="no">Urut: Nomor</option><option value="yd">PP tertinggi</option><option value="ya">PP terendah</option><option value="xd">KIK tertinggi</option><option value="xa">KIK terendah</option></select><span id="cnt"></span></div>
+  <div class="tw"><table><thead><tr><th>No. Responden</th><th>Pengetahuan (KIK)</th><th>Perilaku (PP)</th></tr></thead><tbody id="tb"></tbody></table></div>
+  <p class="note">Catatan: dokumen hanya memuat nomor responden (tanpa nama), sehingga pencarian memakai nomor.</p></section>
+ <section class="page" id="p-chart"><h2>DIAGRAM PENCAR</h2>
+  <div class="tools"><button class="mcbtn s" id="zi">Zoom +</button><button class="mcbtn s" id="zo">Zoom -</button><button class="mcbtn s" id="zr">Reset</button><label><input type="checkbox" id="showline" checked> Garis regresi</label></div>
+  <div class="cw"><canvas id="sc"></canvas><div id="tip"></div></div>
+  <p class="note">Scroll mouse untuk zoom, seret untuk menggeser. Warna: <span class="lg" style="background:#e74c3c"></span>PP ≤ 30 <span class="lg" style="background:#f1c40f"></span>31–35 <span class="lg" style="background:#2ecc71"></span>36–39 <span class="lg" style="background:#4de3e8"></span>40</p>
+  <div class="grid eq"><div class="slot"><span>Persamaan</span><strong>y = 0,02382x + 34,339</strong></div><div class="slot"><span>Korelasi (r)</span><strong>0,019888</strong></div><div class="slot"><span>Determinasi (D)</span><strong>0,000396</strong></div></div></section>
+ <section class="page" id="p-analysis"><h2>ANALISIS DATA</h2><div id="an"></div></section>
+ <section class="page" id="p-conclusion"><h2>KESIMPULAN</h2><div class="panel" id="co"></div></section>
+ <section class="page" id="p-leader"><h2>LEADERBOARD PERILAKU (PP)</h2><p class="note">Peringkat memakai aturan kompetisi: nilai sama berbagi peringkat yang sama, dan semua yang seri ditampilkan.</p><div class="tw"><table><thead><tr><th>Peringkat</th><th>No. Responden</th><th>PP</th><th>KIK</th></tr></thead><tbody id="lb"></tbody></table></div></section>
+ <section class="page" id="p-ach"><h2>ACHIEVEMENT</h2><div class="grid" id="achs"></div></section>
+ <section class="page" id="p-world"><h2>EXPLORE THE WORLD</h2>
+  <p class="note">Gerak: WASD / tombol panah. Dekati bangunan lalu tekan E atau tombol MASUK.</p>
+  <div class="cw"><canvas id="wc"></canvas><button class="mcbtn" id="enter" hidden></button>
+  <div id="pad"><button data-k="up">▲</button><button data-k="left">◀</button><button data-k="down">▼</button><button data-k="right">▶</button></div></div></section>
+ </main></div>
+<script src="data.js"></script><script src="app.js"></script></body></html>
